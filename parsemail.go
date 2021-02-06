@@ -346,7 +346,7 @@ func decodeAttachment(part *multipart.Part) (at Attachment, err error) {
 
 func decodeContent(content io.Reader, encoding string) (io.Reader, error) {
 	switch encoding {
-	case "base64":
+	case "base64", "BASE64":
 		decoded := base64.NewDecoder(base64.StdEncoding, content)
 		b, err := ioutil.ReadAll(decoded)
 		if err != nil {
